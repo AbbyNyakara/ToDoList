@@ -24,20 +24,20 @@ const listArray = [
 
 list.innerHTML = '';
 
-const displayToDo = ()=> {
-for (let i = 0; i < listArray.length; i++) {
-  list.innerHTML += `
-  <div class="list-content">
-    <div class="left">
-      <input type="checkbox" name="" id="">
-      <p>${listArray[i].description}</p>
-    </div>
-    <div class="right">
-      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-    </div>
-  </div>
+const displayToDo = () => {
+  for (let i = 0; i < listArray.length; i++) {
+    list.innerHTML += `
+      <div class="list-content">
+        <div class="left">
+          <input type="checkbox" name="" id="">
+          <p>${listArray[i].description}</p>
+        </div>
+        <div class="right">
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        </div>
+      </div>
   `;
-}
-}
+  }
+};
 
 displayToDo();
