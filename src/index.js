@@ -22,9 +22,8 @@ const listArray = [
   },
 ];
 
-list.innerHTML = '';
-
 const displayToDo = () => {
+  list.innerHTML = '';
   for (let i = 0; i < listArray.length; i++) {
     list.innerHTML += `
       <div class="list-content">
