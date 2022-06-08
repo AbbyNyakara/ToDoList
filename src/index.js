@@ -1,8 +1,10 @@
+/* eslint-disable no-plusplus */
+
 import './index.css';
 
 const list = document.querySelector('.list');
 
-let listArray = [
+const listArray = [
   {
     description: 'Wash the dishes',
     completed: false,
@@ -22,7 +24,7 @@ let listArray = [
 
 list.innerHTML = '';
 
-for (let i=0; i<listArray.length; i++) {
+for (let i = 0; i < listArray.length; i++) {
   list.innerHTML += `
   <div class="list-content">
     <div class="left">
