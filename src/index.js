@@ -24,6 +24,7 @@ const listArray = [
 
 list.innerHTML = '';
 
+const displayToDo = ()=> {
 for (let i = 0; i < listArray.length; i++) {
   list.innerHTML += `
   <div class="list-content">
@@ -37,3 +38,6 @@ for (let i = 0; i < listArray.length; i++) {
   </div>
   `;
 }
+}
+
+displayToDo();
