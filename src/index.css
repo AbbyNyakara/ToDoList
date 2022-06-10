@@ -68,12 +68,53 @@ hr {
   align-items: baseline;
 }
 
-/* Clear Button */
+.list-content .right {
+  cursor: pointer;
+}
 
+input[type='text'] {
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Clear Button */
 .clear {
   width: 100%;
   padding: 10px;
   font-family: 'Montserrat', sans-serif;
   border: 1px solid #a683e3;
   border-radius: 5px;
+}
+
+.fa-square {
+  color: #e4e9fd;
+  border: 1px solid #a683e3;
+  padding: -2px;
+}
+
+/* To be activated when item is marked completed */
+.line-through {
+  text-decoration: line-through;
+  text-decoration-color: #a683e3;
+  color: lightgray;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline;
+}
+
+.fa-trash-can {
+  color: #a683e3;
+}
+
+.fa-square-check {
+  color: #a683e3;
+}
+
+.more {
+  color: #a683e3;
 }
