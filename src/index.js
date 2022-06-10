@@ -89,10 +89,7 @@ const detectClick = () => {
         listArray[element.id].completed = true;
         deleteTask.remove();
       };
-      // Filter the array if the trash = true;
-      // listArray = listArray.filter (function(obj) {
-      //   return obj.trash !== true;
-      // });
+      
 
       // Update the indexes
       listArray = listArray.map((todo, index) => {
