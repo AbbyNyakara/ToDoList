@@ -38,16 +38,13 @@ document.addEventListener('keyup', (event) => {
         description: todo,
         completed: false,
         id: id,
-        trash: false
+        trash: false,
       });
 
-      id ++
+      id += 1;
       userInput.value = '';
       // Local storage
-      localStorage.setItem('list', JSON.stringify(listArray)); 
-    } 
-    else {
-      alert ('Please add an item');
+      localStorage.setItem('list', JSON.stringify(listArray));
     }
   }
 });
