@@ -89,7 +89,6 @@ const detectClick = () => {
         listArray[element.id].completed = true;
         deleteTask.remove();
       };
-      
 
       // Update the indexes
       listArray = listArray.map((todo, index) => {
