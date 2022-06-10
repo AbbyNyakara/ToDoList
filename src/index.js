@@ -1,3 +1,5 @@
+/* eslint-disable object-shorthand */
+
 import './index.css';
 
 // Select the todo-list to be updated
@@ -55,7 +57,7 @@ document.addEventListener('keyup', (event) => {
 // const checked = 'fa-square-checked';
 // const bin = 'fa-trash-can';
 
-let detectClick = () => {
+const detectClick = () => {
   list.addEventListener('click', (e) => {
     // alert("clicked list");
     const element = e.target;
@@ -67,7 +69,7 @@ let detectClick = () => {
       elipsis.classList.toggle('fa-trash-can');
     }
 
-    if (element.classList.contains('check')){
+    if (element.classList.contains('check')) {
       if (element.classList.contains('fa-square')) {
         element.classList.remove('fa-square');
         element.classList.add('fa-square-check');
