@@ -3,12 +3,12 @@ import './index.css';
 // Select the todo-list to be updated
 const list = document.querySelector('.list');
 
-let id=0;
-let listArray = [] || JSON.parse(localStorage.getItem('list')); 
+let id = 0;
+let listArray = [] || JSON.parse(localStorage.getItem('list'));
 const userInput = document.querySelector('.user-input');
 
 // todo item
-let addtodo = (todo, id, completed, trash) => {   
+const addtodo = (todo, id, completed, trash) => {
   if (trash) { return; }
 
   const text = `
@@ -26,29 +26,28 @@ let addtodo = (todo, id, completed, trash) => {
   const position = 'beforeend';
 
   list.insertAdjacentHTML(position, text);
-}
-
+};
 
 // ************** Add event listener to listen for the enter key and add a new todo item //
-document.addEventListener('keyup', (event)=>{
+document.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
-    const todo = userInput.value; 
+    const todo = userInput.value;
     if (todo) {
       addtodo(todo, id, false, false);
-      listArray.push ({
+      listArray.push({
         description: todo,
         completed: false,
         id: id,
         trash: false
       });
-      
+
       id ++
       userInput.value = '';
       // Local storage
       localStorage.setItem('list', JSON.stringify(listArray)); 
     } 
     else {
-      alert ('Please add an item')
+      alert ('Please add an item');
     }
   }
 });
@@ -56,11 +55,11 @@ document.addEventListener('keyup', (event)=>{
 // **************** Functionality to detect click and delete *************//
 
 // Classes Names
-const checked = 'fa-square-checked';
-const bin = 'fa-trash-can'
+// const checked = 'fa-square-checked';
+// const bin = 'fa-trash-can';
 
 let detectClick = () => {
-  list.addEventListener('click', (e)=>{
+  list.addEventListener('click', (e) => {
     // alert("clicked list");
     const element = e.target;
     const textInput = element.parentNode.lastElementChild;
@@ -74,7 +73,7 @@ let detectClick = () => {
     if (element.classList.contains('check')){
       if(element.classList.contains('fa-square')) {
         element.classList.remove('fa-square');
-        element.classList.add('fa-square-check'); // The unchecked element
+        element.classList.add('fa-square-check');
       } else {
         element.classList.add('fa-square');
         element.classList.remove('fa-square-check'); 
@@ -87,31 +86,28 @@ let detectClick = () => {
       textInput.classList.remove('line-through');
     }
 
-    if(elipsis.classList.contains('fa-trash-can')){
+    if (elipsis.classList.contains('fa-trash-can')) {
       const trashIcon = element.parentNode.parentNode.lastElementChild.firstElementChild;
       const deleteTask = element.parentNode.parentNode;
       trashIcon.onclick = ()=> {
         listArray[element.id].trash = true;
         listArray[element.id].completed = true;
         deleteTask.remove();
-      }
+      };
       // Filter the array if the trash = true;
       listArray = listArray.filter(function( obj ) {
         return obj.completed !== true;
       });
 
-      // Update the indexes 
+      // Update the indexes
       listArray = listArray.map((todo, index) => {
         todo.id = index ;
         return todo;
       });
 
       localStorage.setItem('list', JSON.stringify(listArray)); 
-    
-    } else {
-      return;
     }
   });
-}
+};
 
 detectClick();
