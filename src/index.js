@@ -36,11 +36,12 @@ document.addEventListener('keyup', (event) => {
     const todo = userInput.value;
     if (todo) {
       addtodo(todo, id, false, false);
+      
       listArray.push({
-        description: todo,
-        completed: false,
-        id: id,
-        trash: false,
+      description: todo,
+      completed: false,
+      id: id+1,
+      trash: false,
       });
 
       id += 1;
@@ -52,10 +53,6 @@ document.addEventListener('keyup', (event) => {
 });
 
 // **************** Functionality to detect click and delete *************//
-
-// Classes Names
-// const checked = 'fa-square-checked';
-// const bin = 'fa-trash-can';
 
 const detectClick = () => {
   list.addEventListener('click', (e) => {
@@ -94,8 +91,8 @@ const detectClick = () => {
         deleteTask.remove();
       };
       // Filter the array if the trash = true;
-      // listArray.filter (function(obj) {
-      //   return obj.completed !== true;
+      // listArray = listArray.filter (function(obj) {
+      //   return obj.trash !== true;
       // });
 
       // Update the indexes
