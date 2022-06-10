@@ -36,12 +36,11 @@ document.addEventListener('keyup', (event) => {
     const todo = userInput.value;
     if (todo) {
       addtodo(todo, id, false, false);
-      
       listArray.push({
-      description: todo,
-      completed: false,
-      id: id+1,
-      trash: false,
+        description: todo,
+        completed: false,
+        id: id + 1,
+        trash: false,
       });
 
       id += 1;
