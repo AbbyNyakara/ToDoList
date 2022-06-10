@@ -68,12 +68,12 @@ let detectClick = () => {
     }
 
     if (element.classList.contains('check')){
-      if(element.classList.contains('fa-square')) {
+      if (element.classList.contains('fa-square')) {
         element.classList.remove('fa-square');
         element.classList.add('fa-square-check');
       } else {
         element.classList.add('fa-square');
-        element.classList.remove('fa-square-check'); 
+        element.classList.remove('fa-square-check');
       }
     }
 
@@ -86,23 +86,23 @@ let detectClick = () => {
     if (elipsis.classList.contains('fa-trash-can')) {
       const trashIcon = element.parentNode.parentNode.lastElementChild.firstElementChild;
       const deleteTask = element.parentNode.parentNode;
-      trashIcon.onclick = ()=> {
+      trashIcon.onclick = () => {
         listArray[element.id].trash = true;
         listArray[element.id].completed = true;
         deleteTask.remove();
       };
       // Filter the array if the trash = true;
-      listArray = listArray.filter(function( obj ) {
-        return obj.completed !== true;
-      });
+      // listArray.filter (function(obj) {
+      //   return obj.completed !== true;
+      // });
 
       // Update the indexes
       listArray = listArray.map((todo, index) => {
-        todo.id = index ;
+        todo.id = index;
         return todo;
       });
 
-      localStorage.setItem('list', JSON.stringify(listArray)); 
+      localStorage.setItem('list', JSON.stringify(listArray));
     }
   });
 };
